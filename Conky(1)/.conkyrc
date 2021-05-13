@@ -1,0 +1,78 @@
+background yes
+use_xft yes
+override_utf8_locale yes
+xftfont WenQuanYi Micro Hei:size=8
+# xftfont Terminus:size=9
+xftalpha 0.8
+update_interval 5.0
+total_run_times 0
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 10
+maximum_width 330
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+#default_color white
+#default_color AD7FA8
+default_color AD7FA8
+default_shade_color black
+alignment top_right
+gap_x 30
+gap_y 30
+no_buffers yes
+cpu_avg_samples 2
+override_utf8_locale yes
+uppercase no
+use_spacer none
+
+TEXT
+#${alignc 56}${font DotMatrix:style=Bold:size=36}${time %H:%M}${font}
+#${font DotMatrix:size=13}:${time %S}${font}
+#${color #8AE234}$hr${color}
+
+System: ${alignr} ${execi 99999 lsb_release -d -s -c | tr -s "\n" " "}
+Kernel: $alignr $kernel
+Uptime: $alignr $uptime
+${color #8AE234}${font 321impact:size=10}SYSTEM${font}$stippled_hr${color}
+${color #4E9A06}Battery: ${alignr 5}${battery_bar 8,100 BAT0}
+BatteryTime: ${alignr} ${battery_time BAT0}
+#${execi 99999 cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | sed 's#Processor ##'}
+CPU: ${cpu cpu}% ${alignr}
+${cpubar 4,95 cpu1}${alignr}
+RAM: $alignr $mem/$memmax
+${membar 3}
+Swap: $alignr $swap / $swapmax
+${swapbar 3}${color}
+#${color #EF2929}${font 321impact:size=10}Temp${font}$stippled_hr${color}
+#${color #CC0000} CPU: ${alignr}${acpitemp}C
+# GPU: ${alignr}${execi 30 nvidia-settings -q [gpu:0]/GPUCoreTemp | grep '):' | awk '{print $4}' | sed 's/\.//'}C${color}
+${color #729FCF}${font 321impact:size=10}HDD${font}$stippled_hr${color}
+${color #3465A4}I/O:
+Write: $diskio_write ${alignr}Read: $diskio_read
+${diskiograph_write 5,95} ${alignr}${diskiograph_read 5,95}
+ROOT: $alignr ${fs_free /} / ${fs_size /}
+${fs_bar 3 /}
+HOME: $alignr ${fs_free /home} / ${fs_size /home}
+${fs_bar 3 /home}${color}
+${color #FCE94F}${font 321impact:size=10}Networks${font}$stippled_hr${color}
+${color #C4A000}Down ${downspeed wlan0} k/s ${alignr}Up ${upspeed wlan0} k/s
+${downspeedgraph wlan0 10,95} ${alignr}${upspeedgraph wlan0 10,95}
+Total ${totaldown wlan0} ${alignr}Total ${totalup wlan0}${color}
+${color #34E2E2}${font 321impact:size=10}Top${font}$stippled_hr${color}
+${color #06989A}Name ${alignr} PID CPU% MEM%${color}
+${color #FB0808} ${top name 1} ${alignr} ${top pid 1} ${top cpu 1} ${top mem 1}$color
+${color #F6620C} ${top name 2} ${alignr} ${top pid 2} ${top cpu 2} ${top mem 2}${color}
+${color #F6E80C} ${top name 3} ${alignr} ${top pid 3} ${top cpu 3} ${top mem 3}${color}
+${color #08CB2F} ${top name 4} ${alignr} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color #0DBCCE} ${top name 5} ${alignr} ${top pid 5} ${top cpu 5} ${top mem 5}
+${color #2758CF} ${top name 6} ${alignr} ${top pid 6} ${top cpu 6} ${top mem 6}
+#$stippled_hr
+#Mem usage$color
+#${color #ddaa00} ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
+# ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+# ${top_mem name 3} $alignr ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}

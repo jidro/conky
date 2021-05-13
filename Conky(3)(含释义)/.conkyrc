@@ -1,0 +1,106 @@
+alignment top_right
+#是否嵌入桌面
+background yes
+#是否绘制窗口边框
+draw_borders no
+#窗口边框
+border_width 10
+
+#cpu_avg_samples 2
+#默认颜色
+#default_color cornflowerblue
+#默认字体阴影颜色
+default_shade_color black
+#默认字体轮廓线颜色
+#default_outline_color red
+#双缓冲绘图
+double_buffer yes
+#绘制网速cpu等外框
+draw_graph_borders no
+
+#绘制字体轮廓线
+#draw_outline yes
+#绘制字体阴影
+draw_shades yes
+
+gap_x 30
+gap_y 150
+maximum_width 330
+
+max_port_monitor_connections 64
+
+#max_specials 512
+max_user_text 16384
+minimum_size 330 10
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+#自己的窗口
+own_window yes
+#own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#窗口完全透明
+own_window_transparent no
+own_window_argb_visual yes
+#窗口颜色值
+own_window_argb_value 150
+#更新时间单位秒
+update_interval 1
+#全部大写
+uppercase no
+
+use_spacer none
+
+use_xft yes
+xftalpha 0.8
+color0 green
+color1 white
+color2 yellow
+color3 blue
+color4 yellow
+
+#xftfont  Bitstream Vera Sans Mono:size=8
+xftfont Microsoft YaHei Mono Regular:size=8
+TEXT
+${color0}${alignc}$nodename
+$sysname $kernel ${alignr}${color4}${time %H:%M:%S}
+${color0}Uptime:$color4 $uptime ${color0} Load:$color4 $loadavg
+${color0}CPU:${color4} ${cpu}% ${color0}${cpubar 5,80}  ${color0}Disk I/O: $color4${diskio}
+${color0}${cpugraph 0 32,155 104E8B ff0000} $alignr${color0}${diskiograph 32,155 104E8B ff00ff 750}
+${color0}RAM Usage:$color4 $mem${color0}/${color4}$memmax - $memperc% ${color0}$membar
+${color0}Swap Usage:$color4 $swap${color0}/${color4}$swapmax - $swapperc% ${color0}${swapbar}
+
+${color0}Entropy: ${color4}${entropy_avail}${color0}/${color4}${entropy_poolsize} ${color0}${entropy_bar}
+${color0}Net Down:$color4 ${downspeed wlp3s0} k/s      ${color0}Net Up:$color4 ${upspeed wlp3s0} k/s
+${color0}${downspeedgraph wlp3s0 32,155 104E8B ffff00} $alignr${color0}${upspeedgraph wlp3s0 32,155 104E8B 00ffff}
+
+${color0}Top Processes:
+${color0}Name              ${alignr}PID     ${alignr}CPU   ${alignr}MEM
+$color1 ${top name 1} ${alignr}${top pid 1}  ${alignr}${top cpu 1}  ${alignr}${top mem 1}
+$color1 ${top name 2} ${alignr}${top pid 2}  ${alignr}${top cpu 2}  ${alignr}${top mem 2}
+$color1 ${top name 3} ${alignr}${top pid 3}  ${alignr}${top cpu 3}  ${alignr}${top mem 3}
+${color0}Mem usage
+$color1 ${top_mem name 1} ${alignr}${top_mem pid 1}  ${alignr}${top_mem cpu 1}  ${alignr}${top_mem mem 1}
+$color1 ${top_mem name 2} ${alignr}${top_mem pid 2}  ${alignr}${top_mem cpu 2}  ${alignr}${top_mem mem 2}
+$color1 ${top_mem name 3} ${alignr}${top_mem pid 3}  ${alignr}${top_mem cpu 3}  ${alignr}${top_mem mem 3}
+ 
+${color0}Port(s) ${alignr} \#Connections$color1
+$color1 Inbound: ${tcp_portmon 1 32767 count}  Outbound: ${tcp_portmon 32768 61000 count}${alignr}ALL: ${tcp_portmon 1 65535 count}
+${color0}Inbound Connection ${alignr} Local Service/Port$color1
+ ${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+ ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+ ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+ ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+ ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+${color0}Outbound Connection ${alignr} Remote Service/Port$color1
+ ${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+ ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+ ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+ ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+ ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+
+${color0}Local IP:${font}${alignr}${color4}${addr wlp3s0}
+#${color0}Public IP:${font}${alignr}${color4}${execi 5 cat /home/wshuo/myip.txt}
+#conky里面可以执行命令 execi 5 的意思是五秒中执行一下后面的命令，这里我的电脑myip是记录我的公网ip的文件
+#由于请求会有延迟我没有吧请求的地址放到conky配置项里，而是把请求ip地址放到了cron定时任务里面并把地址写入到这个文件
+#这样减少conky性能消耗，否则会有一种卡的感觉 获取公网ip地址命令是curl http://members.3322.org/dyndns/getip
