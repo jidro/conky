@@ -1,0 +1,81 @@
+-- Conky, a system monitor https://github.com/brndnmtthws/conky
+--
+-- This configuration file is Lua code. You can write code in here, and it will
+-- execute when Conky loads. You can use it to generate your own advanced
+-- configurations.
+--
+-- Try this (remove the `--`):
+--
+--   print("Loading Conky config")
+--
+-- For more on Lua, see:
+-- https://www.lua.org/pil/contents.html
+
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+	border_width = 1,
+	cpu_avg_samples = 2,
+	default_color = 'AD7FA8',
+	default_outline_color = 'white',
+	default_shade_color = 'black',
+	double_buffer = true,
+	draw_borders = false,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = false,
+	extra_newline = false,
+	font = 'DejaVu Sans Mono:size=11',
+	gap_x = 60,
+	gap_y = 60,
+	minimum_height = 5,
+	minimum_width = 5,
+	net_avg_samples = 2,
+	no_buffers = true,
+	out_to_console = false,
+	out_to_ncurses = false,
+	out_to_stderr = false,
+	out_to_x = true,
+	own_window = true,
+	own_window_class = 'Conky',
+	own_window_type = 'override',
+	own_window_transparent = true,
+	own_window_argb_visual =true,
+	own_window_argb_value = 150,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	show_graph_range = false,
+	show_graph_scale = false,
+	stippled_borders = 0,
+	update_interval = 1.0,
+	uppercase = false,
+	use_spacer = 'none',
+	use_xft = true,
+	xftalpha = 0.8,
+	minimum_size = '250 10',
+	maximum_width = '330',
+}
+
+conky.text = [[
+${color grey} $alignc $nodename $color
+$hr
+${color #8AE234}SYSTEM$stippled_hr${color}
+${color grey}Kernel: $alignr $color $kernel
+${color grey}Uptime: $alignr $color $uptime
+${color grey}CPU: $alignr $color $cpu%
+${color grey}RAM: $alignr $color $mem/$memmax - $memperc%
+${color grey}Swap:$alignr $color $swap/$swapmax - $swapperc%
+${color grey}Frequency: $alignr $color $freq_g G
+${color grey}Processes: $alignr $color $processes
+${color grey}Running: $alignr $color $running_processes
+$hr
+${color #8AE234}HDD:$stippled_hr${color}
+ROOT $alignr $color${fs_used /}/${fs_size /}
+HOME $alignr $color${fs_free /home}/${fs_size /home}
+$hr
+${color #34E2E2}Top$stippled_hr${color}
+${color grey} Name $alignr CPU%   MEM%
+${color lightgrey} ${top name 1} $alignr ${top cpu 1} ${top mem 1}
+${color lightgrey} ${top name 2} $alignr ${top cpu 2} ${top mem 2}
+${color lightgrey} ${top name 3} $alignr ${top cpu 3} ${top mem 3}
+${color lightgrey} ${top name 4} $alignr ${top cpu 4} ${top mem 4}
+]]

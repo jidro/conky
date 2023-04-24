@@ -23,15 +23,15 @@ draw_graph_borders no
 # Draws the font shadow.
 draw_shades yes
 
-gap_x 30
-gap_y 150
+#gap_x 30
+#gap_y 150
 maximum_width 330
+minimum_size 330 10
 
 max_port_monitor_connections 64
 
 #max_specials 512
 max_user_text 16384
-minimum_size 330 10
 net_avg_samples 2
 no_buffers yes
 out_to_console no
@@ -42,8 +42,8 @@ own_window_type override
 own_window_class Conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 # The window is completely transparent.
-own_window_transparent no
-own_window_argb_visual yes
+own_window_transparent true
+own_window_argb_visual true
 # Window color value.
 own_window_argb_value 150
 # Update time, in seconds.
