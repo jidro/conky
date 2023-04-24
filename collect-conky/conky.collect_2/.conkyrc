@@ -26,7 +26,8 @@ net_avg_samples 2
 no_buffers yes
 out_to_console no
 own_window yes
-#own_window_type desktop
+own_window_type override
+own_window_class Conky
 own_window_argb_visual true
 own_window_transparent true
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager

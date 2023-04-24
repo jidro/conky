@@ -38,6 +38,8 @@ out_to_console no
 # Setting own window.
 own_window yes
 #own_window_type desktop
+own_window_type override
+own_window_class Conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 # The window is completely transparent.
 own_window_transparent no
@@ -100,7 +102,12 @@ ${color0}Outbound Connection ${alignr} Remote Service/Port$color1
  ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
 
 ${color0}Local IP:${font}${alignr}${color4}${addr wlp3s0}
-#${color0}Public IP:${font}${alignr}${color4}${execi 5 cat /home/wshuo/myip.txt}
-# In conky, the command execi 5 can be executed, which means to execute the following commands within five seconds. My computer myip is a file that records my public ip address.
-# Due to the delay in the request, I did not put the requested ip address in the conky configuration item. Instead, I put the requested IP address in the cron scheduling task and wrote the address to this file.
-# So reduce conky performance overhead, otherwise you will feel a kind of card Get command is `curl http://members.3322.org/dyndns/getip` public IP address.
+#${color0}Public IP:${font}${alignr}${color4}${execi 5 cat /path/to/public-ip-file}
+# In conky, the command execi 5 can be executed, 
+# which means to execute the following commands within five seconds. 
+# /path/to/public-ip-file is a file that records public ip address.
+# Due to the delay in the request, I did not put the requested ip address in the conky configuration item. 
+# Instead, I put the requested IP address in the cron scheduling task and wrote the address to this file.
+# So reduce conky performance overhead, 
+# otherwise you will feel a kind of card Get command 
+# is `curl http://members.3322.org/dyndns/getip` public IP address.

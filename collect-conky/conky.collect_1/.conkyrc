@@ -1,3 +1,4 @@
+background yes
 use_spacer right
 use_xft yes
 font Microsoft YaHei:size=8
@@ -5,7 +6,9 @@ xftfont Microsoft YaHei:size=8
 override_utf8_locale yes
 update_interval 1.0
 own_window yes
-own_window_type desktop
+#own_window_type desktop
+own_window_type override
+own_window_class Conky
 own_window_transparent yes
 #own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_argb_visual yes
