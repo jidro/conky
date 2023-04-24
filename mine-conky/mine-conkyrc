@@ -1,26 +1,26 @@
 alignment top_right
-#是否嵌入桌面
+# Whether to embed it on the desktop.
 background yes
-#是否绘制窗口边框
+# Whether to draw a window border.
 draw_borders no
-#窗口边框
+# Window border.
 border_width 10
 
 #cpu_avg_samples 2
-#默认颜色
+# The default color.
 #default_color cornflowerblue
-#默认字体阴影颜色
+# Default font shadow color.
 default_shade_color black
-#默认字体轮廓线颜色
+# Default font contour color.
 #default_outline_color red
-#双缓冲绘图
+# Double buffered drawing.
 double_buffer yes
-#绘制网速cpu等外框
+# Draw network speed cpu and other outer boxes.
 draw_graph_borders no
 
-#绘制字体轮廓线
+# Draw the font outline.
 #draw_outline yes
-#绘制字体阴影
+# Draws the font shadow.
 draw_shades yes
 
 gap_x 30
@@ -35,18 +35,18 @@ minimum_size 330 10
 net_avg_samples 2
 no_buffers yes
 out_to_console no
-#自己的窗口
+# Setting own window.
 own_window yes
 #own_window_type desktop
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-#窗口完全透明
+# The window is completely transparent.
 own_window_transparent no
 own_window_argb_visual yes
-#窗口颜色值
+# Window color value.
 own_window_argb_value 150
-#更新时间单位秒
+# Update time, in seconds.
 update_interval 1
-#全部大写
+# All Caps.
 uppercase no
 
 use_spacer none
@@ -101,6 +101,6 @@ ${color0}Outbound Connection ${alignr} Remote Service/Port$color1
 
 ${color0}Local IP:${font}${alignr}${color4}${addr wlp3s0}
 #${color0}Public IP:${font}${alignr}${color4}${execi 5 cat /home/wshuo/myip.txt}
-#conky里面可以执行命令 execi 5 的意思是五秒中执行一下后面的命令，这里我的电脑myip是记录我的公网ip的文件
-#由于请求会有延迟我没有吧请求的地址放到conky配置项里，而是把请求ip地址放到了cron定时任务里面并把地址写入到这个文件
-#这样减少conky性能消耗，否则会有一种卡的感觉 获取公网ip地址命令是curl http://members.3322.org/dyndns/getip
+# In conky, the command execi 5 can be executed, which means to execute the following commands within five seconds. My computer myip is a file that records my public ip address.
+# Due to the delay in the request, I did not put the requested ip address in the conky configuration item. Instead, I put the requested IP address in the cron scheduling task and wrote the address to this file.
+# So reduce conky performance overhead, otherwise you will feel a kind of card Get command is `curl http://members.3322.org/dyndns/getip` public IP address.
