@@ -87,6 +87,7 @@ conky.config = {
 	uppercase = false,						-- uppercase or not
 	use_spacer = 'none',						-- adds spaces around certain objects to align - default none
 	use_xft = true,							-- xft font - anti-aliased font
+	xftfont = 'WenQuanYi Zen Hei:size=9',
 	xftalpha = 0.8,							-- alpha of the xft font - between 0-1
 
 	--Windows
