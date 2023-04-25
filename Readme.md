@@ -1,4 +1,4 @@
-# `Conky`
+# `Conky` 配置文件
 
 `Conky` 是一个用于`X`窗口系统的系统监视软件。    </br>
 
@@ -20,19 +20,25 @@
 
 - ① 将该仓库克隆至本地。    </br>
 
-- ② 使用如下命令，将喜欢的`conky`配置文件（`.conkyrc/conky.conf`）复制到`~/.config/conky`（录）下：    </br>
+- ② 使用如下命令，将喜欢的`conky`配置文件（`.conkyrc`/`conky.conf`）复制到`~/.config/conky`（`conky`配置目录）下：    </br>
   
   ```shell
-  $ cp -rfpv .conkyrc ~/.config/conky/conky.conf
+  $ cp -rfpv .conkyrc ~/.config/conky/
   ```
 
-- ③ 重启`conky`应用软件，以使用复制的配置文件。    </br>
+- ③ 将`conky`配置文件重命名为`conky.conf`。
 
-- ④ 即可使用所喜欢的`conky`配置文件来配置`conky`应用软件。    </br>
+- ④ 重启`conky`应用软件，以使用复制的配置文件。    </br>
 
-> `.conkyrc`(隐藏文件)导出路径为`~/`    </br>
+- ⑤ 即可使用所喜欢的`conky`配置文件来配置`conky`应用软件。    </br>
+
+> - ① `.conkyrc`（隐藏文件）原路径为`~`（用户主目录）    </br>
+> 
+> - ② `conky.conf`原路径为`~/.config.conky`（`conky`配置目录）    </br>
 > 
 > 请按照此路径返还    </br>
+> 
+> 推荐使用`~/.config/conky`目录。    </br>
 
 ### 免责声明：
 
@@ -63,21 +69,26 @@ that I collected or exported from other systems        </br>
 ### Instructions：
 
 - ① Clone the warehouse locally.    </br>
-  
 
-- ② Use the following command to copy your favorite `conky` configuration file (`. conkyrc`) to the `~/` (user home directory)：    </br>
+- ② Copy your favorite `conky` configuration file ( `.conkyrc` /  `conky.conf` ) to `~/.config/conky` ( `conky` configuration directory ) using the following command：    </br>
   
   ```shell
-  $ cp -rfpv .conkyrc ~/
+  $ cp -rfpv .conkyrc ~/.config/conky/
   ```
 
-- ③ Restart the `conky` application software to use the copied configuration file.    </br>
-  
+- ③ Rename the `conky` configuration file as `conky.conf`.
 
-- ④ You can use your favorite `conky` configuration file to configure the `conky` application software.     </br>
+- ④ Restart the `conky` application software to use the copied configuration file.    </br>
 
-> `.conkyrc` (hidden file) export path is `~/`        </br>
-> Follow this path to Return         </br>
+- ⑤ You can use your favorite `conky` configuration file to configure the `conky` application software.     </br>
+
+> - ① `.conkyrc` (hidden file) export path is `~/`        </br>
+> 
+> - ② The original path of `conky.conf` is `~/.config.conky` ( `conky` configuration directory ).    </br>
+> 
+> Please follow this path to return.
+> 
+> The `~/.config /conky` directory is recommended.
 
 ### Disclaimer：
 
