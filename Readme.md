@@ -20,10 +20,10 @@
 
 - ① 将该仓库克隆至本地。    </br>
 
-- ② 使用如下命令，将喜欢的`conky`配置文件（`.conkyrc`）复制到`~/`（用户主目录）下：    </br>
+- ② 使用如下命令，将喜欢的`conky`配置文件（`.conkyrc/conky.conf`）复制到`~/.config/conky`（录）下：    </br>
   
   ```shell
-  $ cp -rfpv .conkyrc ~/
+  $ cp -rfpv .conkyrc ~/.config/conky/conky.conf
   ```
 
 - ③ 重启`conky`应用软件，以使用复制的配置文件。    </br>
